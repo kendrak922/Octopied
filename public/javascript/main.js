@@ -1,13 +1,49 @@
 
-// A $( document ).ready() block.
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
+//Seting up Main variables
+let count = 0;
+let clickCount = 0;
 
-$('html').on('click', '.octo' , function(){
-    alert('octogoodness');
-});
 
-// $(document).on('click', function(){
-//     alert('abc');
-// })
+$(document).on('click','.octo',clickFrenzy);
+
+/**
+ * sets up listners for the application  **neeeds Work**
+ * 
+ * 
+ */
+function enable() {
+   //setup Listners in here
+}
+/**
+ * Keeps track of the numbers of Clicks 
+ */
+function clickFrenzy() {
+   clickCount++
+   $('.counter').text(clickCount);
+   if(clickCount === 10){
+       alert('Oh Something Happening');
+      evolve();
+   }
+}
+
+/**
+ * Changes the Octopus to its second form uses set interal to achive this
+ * 
+ * 
+ */
+function evolve() {
+    let evolveFlash = 0
+    const timer = setInterval(function(){
+    if((evolveFlash % 2) === 0){
+        console.log("Even", evolveFlash)
+        $('.octo').attr('src', '/images/Octopus.gif');
+    }else{
+        console.log("Odd", evolveFlash)
+        $('.octo').attr('src', '/images/original.gif');
+    }
+    evolveFlash++;
+    if(evolveFlash === 11){
+        clearInterval(timer);
+    }
+},180);
+}
