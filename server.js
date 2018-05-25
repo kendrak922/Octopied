@@ -17,6 +17,8 @@ app.get('/game', function (req, res) {
     res.render('index');
 });
  
-app.listen(PORT, function(){
-    
-}); 
+db.sequelize.sync().then(function(){
+    app.listen(PORT, function(){
+        console.log("App listening on PORT " + PORT);
+    });
+});  
