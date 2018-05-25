@@ -10,6 +10,10 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'))
  
 app.get('/', function (req, res) {
+    res.render('home');
+});
+
+app.get('/game', function (req, res) {
     res.render('index');
 });
  
